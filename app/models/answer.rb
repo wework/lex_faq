@@ -19,7 +19,7 @@ class Answer < ApplicationRecord
 
   MAX_INTENTS     = 99.freeze # Amazon only allows 100 intents per bot
   ID_ALPHA_MAPPER = %w(x a b c d e f g h j k l m n o p).freeze # Its the alphabet, more explanation forthcoming
-  INTENT_PREFIX   = "ANS".freeze # A simple, short prefix used to identify intents created by this application, vs. manually this could be any short alphabetical string
+  INTENT_PREFIX   = "XANS".freeze # A simple, short prefix used to identify intents created by this application, vs. manually this could be any short alphabetical string
   CLIENT          = Aws::LexModelBuildingService::Client.new(region: ENV["LEX_FAQ_AWS_REGION"],
                                                     access_key_id: ENV["LEX_FAQ_AWS_ACCESS_ID"], 
                                                     secret_access_key: ENV["LEX_FAQ_AWS_SECRET_ACCESS_KEY"])
