@@ -1,0 +1,11 @@
+development:
+  adapter: postgresql
+  host: localhost
+  database: lex_faq_dev
+  encoding: unicode
+  
+test: &test
+  adapter: postgresql
+  host: localhost
+  database: lex_faq_test
+  encoding: unicode

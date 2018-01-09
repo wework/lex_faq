@@ -1,0 +1,17 @@
+<div class="answerForm">
+  <% path = @answer.persisted? ? admin_answer_path(@answer) : admin_answers_path %>
+  <%= form_for(@answer, url: path) do |f| %>
+    <div class="input">
+      <label>Name:</label> 
+      <%= f.text_field :name %>
+    </div>
+    <div class="input">
+      <label>Response:</label> 
+      <%= f.text_area :response %>
+    </div>
+    <div class="input">
+      <label>Utterances (comma separated, avoid non-alpha-characters, don't be overly specific, thats what the NLP is for):</label> 
+      <%= f.text_area :utterances, value: @answer.utterances.to_a.join(", ") %>
+    </div>
+    <div class="submitButton"><%= f.submit %></div>
+  <% end %>

@@ -1,0 +1,174 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+body{
+  font-family: sans-serif;
+}
+.adminContainer{
+  width: 1000px;
+  margin: 10px auto;
+  box-shadow:0px 0px 10px #ccc;
+  padding: 1em;
+}
+
+.newAnswerButton{
+  float: right;
+}
+
+table.adminTableList{
+  width:100%;
+}
+
+table.adminTableList tr:odd{
+  background-color: #f3f3f3;
+}
+
+.adminTableList th{
+  text-align: left;
+}
+
+.flashAlert{
+  display: block;
+  width: 1000px;
+  margin: 0 auto;
+  color: white;
+  padding: 10px;
+  background-color: red;
+}
+
+.success{
+  background-color: green
+}
+
+.input{
+  margin-bottom: 1em;
+}
+.input label{
+  display:block;
+  margin-bottom: 5px;
+}
+
+.input input{
+  display: block;
+  text-indent: 10px;
+  line-height: 2;
+  width: 100%;
+  font-size: 16px;
+}
+
+.input textarea{
+  display: block;
+  text-indent: 10px;
+  line-height: 2;
+  width: 100%;
+  font-size: 16px;
+}
+
+#iconsCredit{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size:11px;
+  padding: 5px;
+}
+.container{
+  margin:1em;
+}
+
+.chatContainer{
+  width: 300px;
+  background: white;
+  height: 300px;
+  margin: 50px auto;
+  box-shadow:0px 0px 10px #ccc;
+  position: relative;
+}
+
+.chatContainer .input{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid #ccc;
+  height: 35px;
+  padding-top: 0px;
+}
+
+.chatContainer .chatHistory{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 265px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.chatMessage{
+  margin-bottom: 20px;
+  color: #999;
+}
+
+.chatMessageUser{
+  margin-bottom: 20px;
+  margin-left: 20px;
+  text-align: right;
+  color: #61b2f9;
+}
+
+.chatMessage span,
+.chatMessageUser span{
+  display: inline-block;
+  width:170px;
+}
+
+.chatIcon, 
+.chatIconUser{
+  width: 35px;
+  height: 35px;
+  margin: 10px 10px 10px 20px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.chatIconUser{
+  float: right;
+  margin: 10px 20px 10px 10px;
+}
+
+.chatIconUser{
+  margin-top: -6px;
+}
+
+.chatIcon img, 
+.chatIconUser img{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#inputText{
+  width: 100%;
+  display: block;
+  border: none;
+  padding: 0;
+  line-height: 35px;
+  outline: none;
+  text-indent: 20px;
+  font-size: 15px;
+}
+
+#inputText.inactive{
+  background-color: #f3f3f3;
+}

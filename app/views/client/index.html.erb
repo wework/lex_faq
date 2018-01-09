@@ -1,0 +1,103 @@
+<div class="container">
+  
+  <div class="chatContainer">
+    <div class="chatHistory" id="chatHistory" data-url="<%= api_v1_answers_path %>">
+      
+      <div class="chatMessage">
+        <img src="<%=image_url 'robot-design.png' %>" class="chatIcon" />
+        Howdy, how can i help you?
+      </div>
+
+    </div>
+    <div class="input">
+      <input type="text" name="text" id="inputText" placeholder="Ask your bot!" />
+    </div>
+  </div>
+  <input id="authenticity_token" name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+</div>
+
+
+<div id="iconsCredit">Icons made by 
+  <a href="http://www.freepik.com" title="Freepik">Freepik</a> from 
+  <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by 
+  <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+</div>
+
+<script>
+
+  var inputText = $("#inputText");
+
+  function uuidv4() { // lifted from: https://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
+  }
+
+
+  function userID(){
+    var id = localStorage.getItem("userId");
+    
+    if(id === null){
+      id = uuidv4();
+      localStorage.setItem("userId", id);
+    }
+
+    return id;
+  }
+
+  function submit(){
+    
+    var text = inputText.val();
+    inputText.attr('disabled', true).addClass('inactive').val("").attr('placeholder', "loading..");
+
+    var template = '<div class="chatMessageUser"><span>'+text+'</span><img src="<%=image_url 'user.png' %>" class="chatIconUser" /></div>'
+    $("#chatHistory").append(template);
+
+    var resContainer = $("<div></div>");
+    resContainer.addClass("chatMessage");
+    resContainer.append('<img src="<%=image_url 'robot-design.png' %>" class="chatIcon" />');
+    var restext = $("<span></span>");
+    restext.html("...");
+    resContainer.append(restext);
+    $("#chatHistory").append(resContainer);
+
+    var url = $('#chatHistory').attr("data-url");
+    var at  = $('#authenticity_token').val();
+    
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: {
+        "user_id": userID(),
+        "text": text,
+        "authenticity_token": at 
+      },
+      success: function(r){
+        $("#chatHistory").animate({ scrollTop: $('#chatHistory').prop("scrollHeight")}, 300);
+        restext.text(r.answer);
+      },
+      error: function(r){
+        restext.text(r.responseJSON.error);
+      },
+      complete: function(){
+        inputText
+          .removeAttr('disabled')
+          .attr('placeholder', "Ask your bot!")
+          .removeClass('inactive');
+      }
+    });
+
+  }
+
+  inputText.keyup(function(e){
+
+    if (e.keyCode != 13){
+      return true
+    }
+    
+    submit();
+  })
+
+
+</script>

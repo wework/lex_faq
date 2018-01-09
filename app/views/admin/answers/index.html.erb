@@ -1,0 +1,24 @@
+<div class="adminContainer">
+  <div class="newAnswerButton"><%= link_to "Create new Answer", new_admin_answer_path %></div>
+  <h1>Admin Answers</h1>
+  <table class="adminTableList">
+    <tr>
+      <th>Name</th>
+      <th>Lex Name</th>
+      <th>Utterances</th>
+      <th>Response</th>
+      <th>Created</th>
+      <th>Updated</th>
+    </tr>
+    <% @answers.each do |answer| %>
+      <tr>
+        <td><%= link_to answer.name, edit_admin_answer_path(answer) %></td>
+        <td><%= answer.lex_mapped_intent_name %></td>
+        <td><%= answer.utterances.join(", ") %></td>
+        <td><%= answer.response %></td>
+        <td><%= answer.created_at.strftime("%m/%d/%y %I:%M%p") %></td>
+        <td><%= answer.updated_at.strftime("%m/%d/%y %I:%M%p") %></td>
+      </tr>
+    <%end %>
+  </table>
+</div>
