@@ -1,6 +1,7 @@
 # README
 
-Please read the accompanying [article](https://engineering.wework.com/build-your-own-chat-bot-using-aws-lex-and-ruby-on-rails).
+- Please read the accompanying [article](https://engineering.wework.com/build-your-own-chat-bot-using-aws-lex-and-ruby-on-rails).
+- You can play with a live version of this [here](https://ww-lex-faq.herokuapp.com)
 
 ## Dependencies
 - Ruby 2.3.3
