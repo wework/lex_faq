@@ -16,6 +16,15 @@ class Api::V1::AnswersController < ApiController
 
     sleep(1);
 
+    if resp.dialog_state == "ElicitIntent"
+      render json: { 
+        answer: "Sorry, I don't know how to respond to that.", 
+        dialog_action_type: "Close",
+        fulfillment_state: "Fulfilled",
+        status: 404
+        } and return
+    end
+
     @answer = Answer.find_by_mapped_lex_name(resp.intent_name)
 
     render json: { 
@@ -28,7 +37,7 @@ class Api::V1::AnswersController < ApiController
   rescue => e
     status = @answer.present? ? 500 : 404 
     render json: { 
-      answer: "OH NO! I didn't understand what you asked me :-(",
+      answer: "OH NO! Something went wrong: #{e.inspect}",
       fulfillment_state: 'Fulfilled',
       dialog_action_type: "Close",
       status: status

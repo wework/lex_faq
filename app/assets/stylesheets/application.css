@@ -15,12 +15,44 @@
  */
 body{
   font-family: sans-serif;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQYV2NkQALnz5//zwjjgziGhoaMYAEYB8RmROaABAD61w9xF4DVyAAAAABJRU5ErkJggg==) repeat;
 }
+
 .adminContainer{
   width: 1000px;
   margin: 10px auto;
   box-shadow:0px 0px 10px #ccc;
   padding: 1em;
+  background-color: white;
+}
+
+.utContainer{
+  float: left;
+  width: 300px;
+  background: white;
+  height: 300px;
+  margin: 0px 15px 0 15px;
+  box-shadow:0px 0px 10px #ccc;
+  float:left;
+}
+
+h3{
+  padding: 10px 10px 10px;
+  margin: 0 0 10px;
+  border-bottom: 1px solid;
+  color: #666;
+}
+
+.scrolly{
+  height: 248px;
+  overflow-y: auto;
+}
+
+.ut{
+  display: block;
+  margin-bottom: 1em;
+  text-transform: capitalize;
+  padding-left: 10px;
 }
 
 .newAnswerButton{
@@ -83,17 +115,20 @@ table.adminTableList tr:odd{
   font-size:11px;
   padding: 5px;
 }
+
 .container{
-  margin:1em;
+  margin:1em auto;
+  width: 630px;
 }
 
 .chatContainer{
   width: 300px;
   background: white;
   height: 300px;
-  margin: 50px auto;
+  margin: 0px auto;
   box-shadow:0px 0px 10px #ccc;
   position: relative;
+  float:left;
 }
 
 .chatContainer .input{
@@ -104,6 +139,7 @@ table.adminTableList tr:odd{
   border-top: 1px solid #ccc;
   height: 35px;
   padding-top: 0px;
+  margin-bottom: 0;
 }
 
 .chatContainer .chatHistory{
@@ -116,35 +152,40 @@ table.adminTableList tr:odd{
 }
 
 .chatMessage{
-  margin-bottom: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px dotted #ccc;
   color: #999;
+  min-height: 40px;
 }
 
 .chatMessageUser{
-  margin-bottom: 20px;
-  margin-left: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px dotted #ccc;
   text-align: right;
   color: #61b2f9;
+  min-height: 35px;
 }
 
 .chatMessage span,
 .chatMessageUser span{
   display: inline-block;
-  width:170px;
+  width:225px;
 }
 
 .chatIcon, 
 .chatIconUser{
   width: 35px;
   height: 35px;
-  margin: 10px 10px 10px 20px;
+  margin: 10px 15px 10px 5px;
   display: inline-block;
   vertical-align: middle;
 }
 
 .chatIconUser{
   float: right;
-  margin: 10px 20px 10px 10px;
+  margin: 10px 5px 10px 15px;
 }
 
 .chatIconUser{
@@ -171,4 +212,13 @@ table.adminTableList tr:odd{
 
 #inputText.inactive{
   background-color: #f3f3f3;
+}
+
+#clearLS{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding:10px;
+  background: white;
+  cursor: pointer;
 }

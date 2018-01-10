@@ -1,5 +1,14 @@
 <div class="container">
   
+  <div class="utContainer">
+    <h3>What can you talk about</h3>
+    <div class="scrolly">
+      <% @utterances.each do |u| %>
+        <div class='ut'><%= u %></div>  
+      <% end %>
+    </div>
+  </div>
+  
   <div class="chatContainer">
     <div class="chatHistory" id="chatHistory" data-url="<%= api_v1_answers_path %>">
       
@@ -14,8 +23,10 @@
     </div>
   </div>
   <input id="authenticity_token" name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+
 </div>
 
+<div id="clearLS">Clear LocalStorage UserID: <span id='userID'></span></div>
 
 <div id="iconsCredit">Icons made by 
   <a href="http://www.freepik.com" title="Freepik">Freepik</a> from 
@@ -24,6 +35,11 @@
 </div>
 
 <script>
+  
+  $("#clearLS").on("click", function(){
+    localStorage.removeItem("userId");
+    window.location.reload();
+  });
 
   var inputText = $("#inputText");
 
@@ -42,6 +58,8 @@
       id = uuidv4();
       localStorage.setItem("userId", id);
     }
+
+    $('#userID').html(id);
 
     return id;
   }
@@ -84,7 +102,8 @@
         inputText
           .removeAttr('disabled')
           .attr('placeholder', "Ask your bot!")
-          .removeClass('inactive');
+          .removeClass('inactive')
+          .focus();
       }
     });
 
@@ -95,9 +114,12 @@
     if (e.keyCode != 13){
       return true
     }
-    
+
     submit();
   })
+
+  $("#inputText").focus();
+  userID();
 
 
 </script>
