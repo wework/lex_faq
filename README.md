@@ -10,8 +10,8 @@ Please read the accompanying [article](https://engineering.wework.com/build-your
 
 You'll need the following:
 
-LEX_FAQ_AWS_ACCESS_ID
-LEX_FAQ_AWS_SECRET_ACCESS_KEY
-LEX_FAQ_AWS_REGION
-LEX_FAQ_ADMIN_NAME
-LEX_FAQ_ADMIN_PASSWORD
+- LEX_FAQ_AWS_ACCESS_ID
+- LEX_FAQ_AWS_SECRET_ACCESS_KEY
+- LEX_FAQ_AWS_REGION
+- LEX_FAQ_ADMIN_NAME
+- LEX_FAQ_ADMIN_PASSWORD
